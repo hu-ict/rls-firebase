@@ -1,0 +1,126 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation-float.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>HUtest</title>
+</head>
+<body>
+<!-- Content -->
+<div class="container">
+    <!-- Navbar -->
+    <div class="nav row">
+        <div class="columns small-10">
+            HUtest
+        </div>
+        <div class="columns small-2 right logged-in">
+            <a href="#" class="grey-text" id="logout">Logout</a>
+        </div>
+    </div>
+
+    <div class="row logged-in">
+        <!-- Account details -->
+        <div class="small-6 columns verified">
+            <div class="account-details"></div>
+            <div class="users"></div>
+        </div>
+
+        <!-- Not verified -->
+        <div class="small-6 columns not-verified">
+            Uw account is nog niet geverifierd. Er is een email verstuurd. Heeft u deze na enkele minuten nog niet ontvangen dan kunt u de email opnieuw versturen. Vergeet niet uw spam folder te bekijken.
+            <button class="button" id="resend">Email opnieuw versturen</button>
+        </div>
+
+        <!-- Sign up -->
+        <div class="columns small-6 sign-up">
+            <h4>Sign up</h4><br />
+            <form id="signup-form">
+                <div class="input-field">
+                    <label for="signup-email">E-mailadres</label>
+                    <input type="email" id="signup-email" required />
+                </div>
+                <div class="input-field">
+                    <label for="signup-password">Wachtwoord</label>
+                    <input type="password" id="signup-password" required />
+                </div>
+                <div class="owner-field"></div>
+                <button class="button">Sign up</button>
+                <p class="signup-error error"></p>
+            </form>
+        </div>
+
+
+    </div>
+
+
+
+    <div class="row logged-out">
+        <!-- Login -->
+        <div class="columns small-12 medium-6 medium-offset-3">
+            <h4>Login</h4>
+            <form id="login-form">
+                <div class="input-field">
+                    <label for="login-email">E-mailadres</label>
+                    <input type="email" id="login-email" required />
+                </div>
+                <div class="input-field">
+                    <label for="login-password">Wachtwoord</label>
+                    <input type="password" id="login-password" required />
+                </div>
+                <button class="button">Login</button>
+                <a class="" href="forgot-password.html">Wachtwoord vergeten</a>
+                <p class="login-error error"></p>
+            </form>
+            <hr>
+            <h4>Of login met</h4>
+            <a class="google">
+                <span class="icon"></span>
+                <span class="buttonText">Google</span>
+            </a>
+            <div class="google-error error"></div>
+            <a class="facebook">
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216 216" class="_5h0m" color="#FFFFFF"><path fill="#FFFFFF" d="
+          M204.1 0H11.9C5.3 0 0 5.3 0 11.9v192.2c0 6.6 5.3 11.9 11.9
+          11.9h103.5v-83.6H87.2V99.8h28.1v-24c0-27.9 17-43.1 41.9-43.1
+          11.9 0 22.2.9 25.2 1.3v29.2h-17.3c-13.5 0-16.2 6.4-16.2
+          15.9v20.8h32.3l-4.2 32.6h-28V216h55c6.6 0 11.9-5.3
+          11.9-11.9V11.9C216 5.3 210.7 0 204.1 0z"></path></svg></span>
+                <span class="buttonText">Facebook</span>
+            </a>
+            <div class="facebook-error error"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyC1Mh62dWl1Y1fFm95HgZVKEueweupRBXk",
+        authDomain: "hutest-691be.firebaseapp.com",
+        databaseURL: "https://hutest-691be.firebaseio.com",
+        projectId: "hutest-691be",
+        storageBucket: "hutest-691be.appspot.com",
+        // messagingSenderId: "717627886248",
+        // appId: "1:717627886248:web:4b9f9dba7895df43c1909d"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // make auth and firestore references
+    const auth = firebase.auth();
+    const secondaryApp = firebase.initializeApp(firebaseConfig, "Secondary").auth();
+</script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="scripts/auth.js"></script>
+<script src="scripts/index.js"></script>
+<script src="scripts/requests.js"></script>
+</body>
+</html>
